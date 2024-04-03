@@ -25,8 +25,3 @@ tasks:
     parameters:
       image: ./background.png
       style: Fill
-  - name: catalog-devcenter-neu/set-obs-wallpaper
-    description: Set the wallpaper of your desktop
-    parameters:
-      image: ./background.png
-      style: Fill
