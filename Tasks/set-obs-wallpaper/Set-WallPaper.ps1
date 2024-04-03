@@ -1,5 +1,3 @@
-Function Set-WallPaper {
- 
 <#
  
     .SYNOPSIS
@@ -71,12 +69,14 @@ public class Params
 }
 "@ 
   
-    $SPI_SETDESKWALLPAPER = 0x0014
-    $UpdateIniFile = 0x01
-    $SendChangeEvent = 0x02
+$SPI_SETDESKWALLPAPER = 0x0014
+$UpdateIniFile = 0x01
+$SendChangeEvent = 0x02
   
-    $fWinIni = $UpdateIniFile -bor $SendChangeEvent
-  
-    $ret = [Params]::SystemParametersInfo($SPI_SETDESKWALLPAPER, 0, $Image, $fWinIni)
-}
+$fWinIni = $UpdateIniFile -bor $SendChangeEvent
+
+#$ret = [Params]::SystemParametersInfo($SPI_SETDESKWALLPAPER, 0, $Image, $fWinIni)
+
+Set-ItemProperty -Path 'HKCU:\Control Panel\Desktop\' -Name Wallpaper -Value $Image
+
  
