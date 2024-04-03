@@ -1,7 +1,6 @@
-wsl --set-default-version 2
-# install WSL2 ubuntu distro
-wsl --install -d Ubuntu-22.04
-# Update the distro and install software
+
+$Usernamme = Read-Host "Please enter your wsl username you set in the previous script"
+# update source.list and install base configuration file
 wsl -d Ubuntu-22.04 -u root -e sh -c "apt-get update && apt-get install -y apt-transport-https ca-certificates curl gnupg lsb-release git"
 # Update the distro
 wsl -d Ubuntu-22.04 -u root -e sh -c "apt-get upgrade -y"
@@ -18,4 +17,4 @@ wsl -d Ubuntu-22.04 -u root -e sh -c "systemctl enable docker"
 # Install repo
 wsl -d Ubuntu-22.04 -u root -e sh -c "curl https://storage.googleapis.com/git-repo-downloads/repo > /usr/local/bin/repo && chmod a+rx /usr/local/bin/repo"
 # Before lauching the following command please change the token YOUR_USERNAME with the one you set when installing the distro
-# wsl -d Ubuntu-22.04 -u root -e sh -c "usermod -aG docker YOUR_USERNAME"
+wsl -d Ubuntu-22.04 -u root -e sh -c "usermod -aG docker $Username"
