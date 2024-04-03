@@ -4,19 +4,19 @@ $schema: 1.0
 name: set-obs-wallpaper
 description: Deploy the default Orange Business Wallpaper
 author: Orange Business
-command: "./Set-WallPaper.ps1 -Image {{image}} -Style {{style}}"
+command: ".\\Set-WallPaper.ps1 -Image {{image}} -Style {{style}}"
 parameters:
   image:
     default: "./background.png"
     type: string
-    required: false
+    required: true
     description: |
       The name of the file used as wall paper. If it begins with http we download the file first. For downloaded background the
       file format must be PNG
   style:
     default: "Fill"
     type: string
-    required: false
+    required: true
     description: How the image is set as a background. Can be 'Fill', 'Fit', 'Stretch', 'Tile', 'Center', 'Span'
 documentation:
   notes: This task is used to deploy an image as a background of your dev box
