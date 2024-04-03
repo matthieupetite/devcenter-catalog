@@ -1,21 +1,32 @@
+# From https://github.com/matthieupetite/devcenter-catalog
 $schema: 1.0
+name: "devbox-customization"
 tasks:
-  - name: git-clone
-    description: Clone post install script into C:\temp\postintall
+  - name: catalog-devcenter-neu/powershell
+    parameters:
+      command: |
+        # Install WSL2 distros
+        wsl --install -d Ubuntu-22.04;
+
+        # Install VSCode extensions
+        code --install-extension ms-python.python;
+        code --install-extension ms-vscode-remote.remote-wsl;
+        code --install-extension ms-vscode-remote.vscode-remote-extensionpack
+        code --install-extension github.copilot
+        code --install-extension github.copilot-chat
+  - name: catalog-devcenter-neu/git-clone
+    description: Clone this repository into C:\init
     parameters:
       repositoryUrl: https://github.com/matthieupetite/devcenter-catalog.git
-      directory: C:\temp\postintall
-  - name: install-vs-extension
-      description: Install GitHub Copilot
-      parameters:
-        marketplaceItemName: github.copilot
-  - name: install-vs-extension
-      description: Install GitHub Copilot Chat
-      parameters:
-        marketplaceItemName: github.copilot-chat
-  - name: install-vs-extension
-      description: Install Remote DevTools extension
-      parameters:
-        marketplaceItemName: ms-vscode-remote.vscode-remote-extensionpack
-  - name: set-wallpaper
-      description: Set the wallpaper of your desktop
+      branch: scripts
+      directory: C:\init
+  - name: catalog-devcenter-neu/set-obs-wallpaper
+    description: Set the wallpaper of your desktop
+    parameters:
+      image: ./background.png
+      style: Fill
+  - name: catalog-devcenter-neu/set-obs-wallpaper
+    description: Set the wallpaper of your desktop
+    parameters:
+      image: ./background.png
+      style: Fill
