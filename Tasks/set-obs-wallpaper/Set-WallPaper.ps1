@@ -40,7 +40,7 @@ $WallpaperStyle = Switch ($Style) {
 
 if ($Image.StartsWith("http")) {
     $wc = New-Object System.Net.WebClient
-    $ws.DownloadFile($Image,"./background-perso.png"))
+    $ws.DownloadFile($Image,"./background-perso.png")
     $Image = "./background-perso.png"
 }
  
