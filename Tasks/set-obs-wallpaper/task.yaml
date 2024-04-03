@@ -1,0 +1,30 @@
+# This is a Chocolatey package installation task for Dev Box.
+
+$schema: 1.0
+name: set-wallpaper
+description: Deploy the default Orange Business Wallpaper
+author: Orange Business
+command: "./Set-WallPaper.ps1 -Image {{image}} -Style {{style}}"
+parameters:
+  image:
+    default: "./background.png"
+    type: string
+    required: false
+    description: |
+      The name of the file used as wall paper. If it begins with http we download the file first. For downloaded background the
+      file format must be PNG
+  style:
+    default: "Fill"
+    type: string
+    required: false
+    description: How the image is set as a background. Can be 'Fill', 'Fit', 'Stretch', 'Tile', 'Center', 'Span'
+documentation:
+  notes: This task is used to deploy an image as a background of your dev box
+  examples:
+    - name: set-wallpaper
+      description: Set the wallpaper of your desktop
+    - name: set-wallpaper
+      description: set wallpaper from a url
+      parameters:
+        image: https://img.freepik.com/free-photo/beautiful-aerial-shot-fronalpstock-mountains-switzerland-beautiful-pink-blue-sky_181624-9315.jpg?w=1380&t=st=1712131572~exp=1712132172~hmac=a861e5a3deeb2d43d038665934bfac8a23ca5727c0eef8c199538ccb16848797
+        style: Tile
