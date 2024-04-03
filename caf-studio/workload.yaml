@@ -1,0 +1,21 @@
+$schema: 1.0
+tasks:
+  - name: git-clone
+    description: Clone post install script into C:\temp\postintall
+    parameters:
+      repositoryUrl: https://github.com/matthieupetite/devcenter-catalog.git
+      directory: C:\temp\postintall
+  - name: install-vs-extension
+      description: Install GitHub Copilot
+      parameters:
+        marketplaceItemName: github.copilot
+  - name: install-vs-extension
+      description: Install GitHub Copilot Chat
+      parameters:
+        marketplaceItemName: github.copilot-chat
+  - name: install-vs-extension
+      description: Install Remote DevTools extension
+      parameters:
+        marketplaceItemName: ms-vscode-remote.vscode-remote-extensionpack
+  - name: set-wallpaper
+      description: Set the wallpaper of your desktop
